@@ -66,3 +66,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### Lessons Learned:
+#1 async functions will run after all other synchronous code has run as I learned in a previous lecture. Therefore, calling a variable ceated after the async function will not result in an error, provided that variable is not created using an async function.
