@@ -26,5 +26,9 @@
   .remove-button {
     width: 8%;
     text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
