@@ -17,8 +17,17 @@
     }
   }
 
+  .quantity {
+    width: 23%;
+    display: flex;
+
+    .arrow {
+      padding: 0 5px;
+      cursor: pointer;
+    }
+  }
+
   .name,
-  .quantity,
   .price {
     width: 23%;
   }
