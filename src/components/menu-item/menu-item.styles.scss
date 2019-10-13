@@ -1,6 +1,7 @@
 .menu-item {
-  min-width: 30%;
-  height: 240px;
+  min-width: 220px;
+  min-height: 180px;
+  height: 30vh;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -8,14 +9,6 @@
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
-
-  // &:first-child {
-  //   margin-right: 7.5px;
-  // }
-
-  // &:last-child {
-  //   margin-left: 7.5px;
-  // }
 
   &:hover {
     cursor: pointer;
@@ -30,8 +23,11 @@
     }
   }
 
-  &.large {
-    height: 380px;
+  @media (min-width: 1100px) {
+    &.large {
+      height: 40vh;
+      width: 40%;
+    }
   }
 
   .background-image {
