@@ -7,12 +7,13 @@ import CartItem from "../cart-item/cart-item.component";
 import CustomButton from "../custom-button/custom-button.component";
 
 import { selectCartItems } from "../../redux/cart/cart.selectors";
+import { selectNavHidden } from "../../redux/header/header.selectors";
 import { toggleCartHidden } from "../../redux/cart/cart.actions";
 
 import "./cart-dropdown.styles.scss";
 
-const CartDropdown = ({ cartItems, history, dispatch }) => (
-  <div className="cart-dropdown">
+const CartDropdown = ({ cartItems, navHidden, history, dispatch }) => (
+  <div className={`cart-dropdown ${navHidden ? "blur-cart" : ""}`}>
     <div className="cart-items">
       {cartItems.length > 0 ? (
         cartItems.map(cartItem => {
@@ -35,7 +36,8 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
 
 const mapStateToProps = state =>
   createStructuredSelector({
-    cartItems: selectCartItems
+    cartItems: selectCartItems,
+    navHidden: selectNavHidden
   });
 
 export default withRouter(connect(mapStateToProps)(CartDropdown));

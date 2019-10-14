@@ -46,7 +46,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <div class={this.props.navHidden ? "mobile-nav" : ""}>
+        <div className={this.props.navHidden ? "mobile-nav" : ""}>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />

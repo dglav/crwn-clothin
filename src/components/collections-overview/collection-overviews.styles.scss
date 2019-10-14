@@ -1,4 +1,8 @@
 .collections-overview {
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1050px) {
+    text-align: center;
+  }
 }

@@ -25,15 +25,10 @@ class HeaderClass extends Component {
     };
   }
 
-  // handleClickNav = () => {
-  //   this.setState({ fullPageNav: !this.state.fullPageNav }, () =>
-  //     console.log(this.state.fullPageNav)
-  //   );
-  // };
-
-  // handleClickMenuClose = () => {
-  //   this.setState({ fullPageNav: false });
-  // };
+  handleSignOut = () => {
+    auth.signOut();
+    this.props.hideNav();
+  };
 
   render() {
     return (
@@ -41,6 +36,7 @@ class HeaderClass extends Component {
         <Link to="/" className="logo-container">
           <Logo className="logo" />
         </Link>
+        <CartIcon />
         <div
           className={`options ${this.props.navHidden ? "full-page-nav" : ""}`}
         >
@@ -59,7 +55,11 @@ class HeaderClass extends Component {
             CONTACT
           </Link>
           {this.props.currentUser ? (
-            <Link className="option" to="/" onClick={() => auth.signOut()}>
+            <Link
+              className="option"
+              to="/"
+              onClick={() => this.handleSignOut()}
+            >
               SIGN OUT
             </Link>
           ) : (
@@ -71,6 +71,7 @@ class HeaderClass extends Component {
               SIGN IN
             </Link>
           )}
+          <CartIcon />
           {this.props.navHidden ? (
             <Link
               className="option"
@@ -79,9 +80,7 @@ class HeaderClass extends Component {
             >
               GO TO CART
             </Link>
-          ) : (
-            <CartIcon />
-          )}
+          ) : null}
         </div>
         <div
           className="menu-toggle"

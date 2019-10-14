@@ -17,6 +17,10 @@
     }
   }
 
+  .cart-icon {
+    display: none;
+  }
+
   .options {
     height: 100%;
     display: flex;
@@ -29,6 +33,10 @@
       &:hover {
         border-bottom: 1px solid black;
       }
+    }
+
+    .cart-icon {
+      display: flex;
     }
   }
 
@@ -56,6 +64,9 @@
 }
 
 @media (max-width: 525px) {
+  .header .cart-icon {
+    display: flex;
+  }
   .header .options {
     display: none;
   }
@@ -77,10 +88,17 @@
       padding: 6vh 0;
       font-size: 24px;
       color: white;
+      display: flex;
+      justify-content: center;
+      line-height: 45px;
 
       &:hover {
         background-color: rgba(0, 0, 0, 0.6);
       }
+    }
+
+    .cart-icon {
+      display: none;
     }
   }
   .header .menu-toggle {
