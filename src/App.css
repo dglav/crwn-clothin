@@ -11,3 +11,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.mobile-nav {
+  filter: blur(6px);
+  height: calc(100vh - 115px);
+  overflow: hidden;
+}

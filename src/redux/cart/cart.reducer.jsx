@@ -19,7 +19,6 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         cartItems: addItemToCart(state.cartItems, action.payload)
       };
     case CartActionTypes.REMOVE_SINGLE_ITEM:
-      console.log(action.payload);
       return {
         ...state,
         cartItems: removeSingleItem(state.cartItems, action.payload)

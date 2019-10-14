@@ -7,6 +7,10 @@
   justify-content: center;
   cursor: pointer;
 
+  &:hover {
+    border-bottom: 1px solid black;
+  }
+
   .shopping-icon {
     width: 24px;
     height: 24px;

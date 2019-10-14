@@ -14,6 +14,7 @@ import CheckoutPage from "./pages/checkout/checkout.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up-page.component";
 
 import { selectCurrentUser } from "./redux/user/user.selectors";
+import { selectNavHidden } from "./redux/header/header.selectors";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -45,22 +46,24 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route exact path="/checkout" component={CheckoutPage} />
-          <Route
-            exact
-            path="/signin"
-            render={() =>
-              this.props.currentUser ? (
-                <Redirect to="/" />
-              ) : (
-                <SignInAndSignUpPage />
-              )
-            }
-          />
-        </Switch>
+        <div class={this.props.navHidden ? "mobile-nav" : ""}>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
+            <Route
+              exact
+              path="/signin"
+              render={() =>
+                this.props.currentUser ? (
+                  <Redirect to="/" />
+                ) : (
+                  <SignInAndSignUpPage />
+                )
+              }
+            />
+          </Switch>
+        </div>
       </div>
     );
   }
@@ -68,7 +71,8 @@ class App extends React.Component {
 
 const mapStateToProps = state =>
   createStructuredSelector({
-    currentUser: selectCurrentUser
+    currentUser: selectCurrentUser,
+    navHidden: selectNavHidden
   });
 
 const mapDispatchToProps = dispatch => ({
