@@ -6,3 +6,14 @@
     justify-content: space-between;
   }
 }
+
+@media (max-width: 525px) {
+  .sign-in {
+    width: 90%;
+    text-align: center;
+
+    .buttons {
+      flex-direction: column;
+    }
+  }
+}

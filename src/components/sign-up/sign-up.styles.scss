@@ -1,3 +1,16 @@
 .sign-up {
+  display: flex;
+  flex-direction: column;
   width: 380px;
+}
+
+@media (max-width: 525px) {
+  .sign-up {
+    width: 90%;
+    text-align: center;
+
+    button {
+      width: 100%;
+    }
+  }
 }

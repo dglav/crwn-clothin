@@ -17,3 +17,9 @@ a {
   height: calc(100vh - 115px);
   overflow: hidden;
 }
+
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+}
