@@ -94,33 +94,33 @@ class HeaderClass extends Component {
   }
 }
 
-const Header = ({ currentUser, hidden }) => (
-  <div className="header">
-    <Link to="/" className="logo-container">
-      <Logo className="logo" />
-    </Link>
-    <div className="options">
-      <Link className="option" to="/shop">
-        SHOP
-      </Link>
-      <Link className="option" to="/contact">
-        CONTACT
-      </Link>
-      {currentUser ? (
-        <Link className="option" to="/" onClick={() => auth.signOut()}>
-          SIGN OUT
-        </Link>
-      ) : (
-        <Link className="option" to="/signin">
-          SIGN IN
-        </Link>
-      )}
-      <CartIcon />
-    </div>
-    <div className="menu-toggle">&#9776;</div>
-    {hidden ? null : <CartDropdown />}
-  </div>
-);
+// const Header = ({ currentUser, hidden }) => (
+//   <div className="header">
+//     <Link to="/" className="logo-container">
+//       <Logo className="logo" />
+//     </Link>
+//     <div className="options">
+//       <Link className="option" to="/shop">
+//         SHOP
+//       </Link>
+//       <Link className="option" to="/contact">
+//         CONTACT
+//       </Link>
+//       {currentUser ? (
+//         <Link className="option" to="/" onClick={() => auth.signOut()}>
+//           SIGN OUT
+//         </Link>
+//       ) : (
+//         <Link className="option" to="/signin">
+//           SIGN IN
+//         </Link>
+//       )}
+//       <CartIcon />
+//     </div>
+//     <div className="menu-toggle">&#9776;</div>
+//     {hidden ? null : <CartDropdown />}
+//   </div>
+// );
 
 const mapStateToProps = state =>
   createStructuredSelector({
