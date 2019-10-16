@@ -9,11 +9,15 @@
 
   .items {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 
     & .collection-item {
       margin-bottom: 30px;
+    }
+
+    @media (max-width: 800px) {
+      justify-content: space-around;
     }
   }
 }

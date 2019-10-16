@@ -9,7 +9,6 @@ import "./directory.styles.scss";
 import MenuItem from "../menu-item/menu-item.component";
 
 const Directory = ({ sections }) => {
-  console.log(sections);
   return (
     <div className="directory-menu">
       {sections.map(({ id, ...otherSectionProps }) => (

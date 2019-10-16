@@ -6,11 +6,19 @@
   .title {
     font-size: 28px;
     margin-bottom: 25px;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 
   .preview {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
+
+    @media (max-width: 800px) {
+      justify-content: space-around;
+    }
   }
 }

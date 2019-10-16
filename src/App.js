@@ -15,6 +15,7 @@ import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up
 
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { selectNavHidden } from "./redux/header/header.selectors";
+import { selectCollectionsForPreview } from "./redux/shop/shop.selectors";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -72,11 +73,13 @@ class App extends React.Component {
 const mapStateToProps = state =>
   createStructuredSelector({
     currentUser: selectCurrentUser,
-    navHidden: selectNavHidden
+    navHidden: selectNavHidden,
+    collectionsArray: selectCollectionsForPreview
   });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  addCollectionAndDocuments: collection => dispatch()
 });
 
 export default connect(
