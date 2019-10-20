@@ -3,7 +3,9 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+
 import { setCurrentUser } from "./redux/user/user.actions";
+import { hideCart } from "./redux/cart/cart.actions";
 
 import "./App.css";
 
@@ -16,12 +18,13 @@ import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { selectNavHidden } from "./redux/header/header.selectors";
 import { selectCollectionsForPreview } from "./redux/shop/shop.selectors";
+import { selectCartHidden } from "./redux/cart/cart.selectors";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser, cartHidden, hideCart } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -37,6 +40,8 @@ class App extends React.Component {
         setCurrentUser(userAuth);
       }
     });
+
+    if (!cartHidden) hideCart();
   }
 
   componentWillUnmount() {
@@ -74,12 +79,13 @@ const mapStateToProps = state =>
   createStructuredSelector({
     currentUser: selectCurrentUser,
     navHidden: selectNavHidden,
-    collectionsArray: selectCollectionsForPreview
+    collectionsArray: selectCollectionsForPreview,
+    cartHidden: selectCartHidden
   });
 
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user)),
-  addCollectionAndDocuments: collection => dispatch()
+  hideCart: () => dispatch(hideCart())
 });
 
 export default connect(
