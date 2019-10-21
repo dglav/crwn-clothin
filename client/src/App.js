@@ -2,10 +2,9 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
-import { setCurrentUser } from "./redux/user/user.actions";
 import { hideCart } from "./redux/cart/cart.actions";
+import { checkUserSession } from "./redux/user/user.actions";
 
 import "./App.css";
 
@@ -24,7 +23,9 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser, cartHidden, hideCart } = this.props;
+    const { cartHidden, hideCart, checkUserSession } = this.props;
+
+    checkUserSession();
 
     // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
     //   if (userAuth) {
@@ -84,7 +85,7 @@ const mapStateToProps = state =>
   });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  checkUserSession: () => dispatch(checkUserSession()),
   hideCart: () => dispatch(hideCart())
 });
 

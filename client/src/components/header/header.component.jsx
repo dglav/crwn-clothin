@@ -12,6 +12,7 @@ import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectNavHidden } from "../../redux/header/header.selectors";
 
 import { toggleNavHidden, hideNav } from "../../redux/header/header.actions";
+import { signOutStart } from "../../redux/user/user.actions";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
@@ -31,6 +32,7 @@ class Header extends Component {
   };
 
   render() {
+    const { signOutStart } = this.props;
     return (
       <div className="header">
         <Link to="/" className="logo-container">
@@ -55,11 +57,7 @@ class Header extends Component {
             CONTACT
           </Link>
           {this.props.currentUser ? (
-            <Link
-              className="option"
-              to="/"
-              onClick={() => this.handleSignOut()}
-            >
+            <Link className="option" to="/" onClick={signOutStart}>
               SIGN OUT
             </Link>
           ) : (
@@ -103,7 +101,8 @@ const mapStateToProps = state =>
 
 const mapDispatchToProps = dispatch => ({
   toggleNavHidden: () => dispatch(toggleNavHidden()),
-  hideNav: () => dispatch(hideNav())
+  hideNav: () => dispatch(hideNav()),
+  signOutStart: () => dispatch(signOutStart())
 });
 
 export default connect(

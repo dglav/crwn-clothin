@@ -25,8 +25,6 @@ class SignUp extends Component {
   };
 
   handleSubmit = async event => {
-    console.log("testing");
-
     event.preventDefault();
 
     const { displayName, email, password, confirmPassword } = this.state;
